@@ -1,0 +1,218 @@
+// Importar Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+// Variáveis de Cor
+$primary: #4a90e2;         // Cor primária
+$secondary: #f5f5f5;       // Cor secundária
+$background: #1e1e2f;      // Cor de fundo
+$text: #ffffff;            // Cor do texto
+$hover-primary: #61b6b9;   // Estado de hover para cor primária
+$error: #bb4437;           // Cor de erro
+
+// Estilos Globais
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Lexend", sans-serif;
+    color: $text;
+    background-color: $background;
+}
+
+// Container de Grid
+.grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 47% 53%;
+    row-gap: 20px;
+    width: 100%;
+
+    // Seção de Início
+    .label-start {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $background;
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+
+        h1 {
+            font-size: 1.89rem;
+            font-family: "Lexend", sans-serif;
+        }
+
+        i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: $primary;
+        }
+    }
+
+    // Seção de Formulário
+    .formulario {
+        width: 100%;
+        height: 100%;
+        grid-row: 2;
+
+        .title {
+            display: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: $text;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 15px;
+
+            // Estilos de Input
+            input {
+                width: 100%;
+                height: 50px;
+                padding: 15px;
+                border-radius: 8px;
+                background-color: $secondary;
+                border: 2px solid transparent;
+                outline: none;
+                font-family: "Lexend", sans-serif;
+                font-size: 1rem;
+                color: $background;
+
+                &:focus {
+                    border-color: $primary;
+                }
+            }
+
+            // Estilos de Botão
+            button {
+                width: 100%;
+                height: 50px;
+                background-color: $primary;
+                border: none;
+                color: $text;
+                border-radius: 8px;
+                font-weight: 700;
+                font-family: "Lexend", sans-serif;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: $hover-primary;
+                }
+            }
+
+            // Estilos de Botão de Reset
+            button[type="reset"] {
+                background-color: $error;
+                margin-bottom: 10px;
+
+                &:hover {
+                    background-color: darken($error, 10%);
+                }
+            }
+        }
+    }
+}
+
+// Estilos do Rodapé
+footer {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: darken($background, 5%);
+    color: $text;
+    font-family: "Lexend", sans-serif;
+    font-size: 0.9rem;
+
+    a {
+        color: $primary;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $hover-primary;
+        }
+    }
+}
+
+// Estilos de Label
+label {
+    display: block; // Garantir que os labels estejam em sua própria linha
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: lighten($text, 20%);
+    font-family: "Lexend", sans-serif;
+
+    &:focus-within {
+        color: $primary; // Destacar label quando o input estiver focado
+    }
+}
+
+// Ajustes para Inputs do Formulário
+.form-group {
+    margin-bottom: 20px;
+
+    input {
+        margin-top: 5px; // Adicionar espaçamento entre label e input
+    }
+}
+
+// Media Query para Telas Desktop
+@media only screen and (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: auto; 
+        column-gap: 40px; 
+        align-items: center; 
+        max-width: 1200px; 
+        margin: auto; 
+        padding: 40px; 
+
+        .label-start {
+            grid-column: 1;
+            grid-row: 1; 
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            padding: 40px;
+        }
+
+        .formulario {
+            grid-column: 2; 
+            grid-row: 1;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            background-color: lighten($background, 5%); 
+            border-radius: 12px;
+
+            .title {
+                display: block; 
+                font-size: 2rem;
+                margin-bottom: 30px;
+                text-align: center; 
+            }
+        }
+    }
+    footer {
+        display: block;
+    }	
+}
+    
